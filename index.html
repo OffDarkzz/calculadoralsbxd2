@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Los Santos Customs Baixada</title>    
+
+
+    <style>
+
+        *{
+            font: 500 24px 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: white;
+        }
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            background-color: black;
+        }
+        .box { 
+            width: 700px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 1%;
+            background: black;
+        }
+        .calc-box {
+            padding: 40px;
+        }
+        .teste{
+            margin-top: 4px;
+            display: flex;
+        }
+        .item-name{
+            display: flex; 
+            width: 200px;
+        }
+        .relatorio{
+            background-color: blueviolet;
+            display: flex;
+            width: 63.5%;
+            border-radius: 8px;
+            padding-left: 5px;
+            margin-right: 3px;
+        }
+        
+        /* CSS */
+        .button-64 {
+            align-items: center;
+            background-image: linear-gradient(144deg,#898989, #252525, #1e1e1e 50%);
+            border: 0;
+            border-radius: 8px;
+            box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+            box-sizing: border-box;
+            color: #FFFFFF;
+            display: flex;
+            font-family: Phantomsans, sans-serif;
+            /* font-size: 20px; */
+            justify-content: center;
+            line-height: 1em;
+            /* max-width: 100%; */
+            /* min-width: 140px; */
+            /* padding: 3px; */
+            text-decoration: none;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .button-64:active,
+        .button-64:hover {
+            outline: 0;
+        }
+
+        .button-64 span {
+            background-color: rgb(5, 6, 45);
+            padding: 16px 24px;
+            border-radius: 6px;
+            width: 100%;
+            height: 100%;
+            transition: 300ms;
+        }
+
+        .button-64:hover span {
+            background: none;
+        }
+
+        @media (min-width: 768px) {
+            .button-64 {
+                font-size: 24px;
+                width: fit-content;
+                padding-inline: 18px;
+                margin-inline: 2px;
+            }
+        }
+        
+        .inputBox{
+            width: 20%;
+            color: black;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <main>
+        <section style="width: fit-content;">
+            <div class="box">
+                <div class="calc-box">
+                    <div style="text-align: center; margin-bottom: 10px;">
+                        <img width="250" src="logo.png"/>
+                    </div>
+                    <div class="teste">
+                        <div class="item-name">
+                            <span>Kit Reparo</span>
+                        </div>                        
+                        <input class="inputBox" type="number" name="kit" id="kit" value="0">
+                        <button class="button-64" role="button" onclick="addKit()">+1</button>
+                        <button class="button-64" role="button"onclick="removKit()">-1</button>
+                        <button class="button-64" role="button"onclick="zerarKit()">Zerar</button>
+                    </div>
+    
+                    <div class="teste">
+                        <div class="item-name">
+                            <span>Pneu</span>
+                        </div>
+                        <input class="inputBox" type="number" name="pneu" id="pneu" value="0">
+                        <button class="button-64" role="button" onclick="addPneu()">+1</button>
+                        <button class="button-64"onclick="removPneu()">-1</button>
+                        <button class="button-64" role="button" onclick="zerarPneu()">Zerar</button>
+                    </div>
+    
+                    <div class="teste">
+                        <div class="item-name">
+                            <span>Pé de Cabra</span>
+                        </div>
+                        <input class="inputBox" type="number" name="pe" id="pe" value="0">
+                        <button class="button-64" role="button" onclick="addPe()">+1</button>
+                        <button class="button-64"onclick="removPe()">-1</button>
+                        <button class="button-64" role="button" onclick="zerarPe()">Zerar</button>
+                    </div>
+    
+                    <div class="teste">
+                        <div class="item-name">
+                            <span>Chave Inglesa</span>
+                        </div>
+                        <input class="inputBox" type="number" name="chave" id="chave" value="0">
+                        <button class="button-64" role="button" onclick="addChave()">+1</button>
+                        <button class="button-64"onclick="removChave()">-1</button>
+                        <button class="button-64" role="button" onclick="zerarChave()">Zerar</button>
+                    </div>
+    
+                    <div class="teste">
+                        <div class="item-name">
+                            <span>Guincho</span>
+                        </div>
+                        <input class="inputBox" type="number" name="guincho" id="guincho" value="0">
+                        <button class="button-64" role="button" onclick="addGuincho()">+1</button>
+                        <button class="button-64"onclick="removGuincho()">-1</button>
+                        <button class="button-64" role="button" onclick="zerarGuincho()">Zerar</button>
+                    </div>
+
+                    <div class="teste">
+                        <div class="item-name">
+                            <span>Filtro de Ar</span>
+                        </div>
+                        <input class="inputBox" type="number" name="filtroar" id="filtroar" value="0">
+                        <button class="button-64" role="button" onclick="addFiltroar()">+1</button>
+                        <button class="button-64"onclick="removFiltroar()">-1</button>
+                        <button class="button-64" role="button" onclick="zerarFiltroar()">Zerar</button>
+                    </div>
+    
+                    <div class="teste">
+                        <div class="item-name">
+                            <span>Guincho</span>
+                        </div>
+                        <input class="inputBox" type="number" name="guincho" id="guincho" value="0">
+                        <button class="button-64" role="button" onclick="addGuincho()">+1</button>
+                        <button class="button-64"onclick="removGuincho()">-1</button>
+                        <button class="button-64" role="button" onclick="zerarGuincho()">Zerar</button>
+                    </div>
+    
+                    <div class="teste">
+                        <div class="item-name">
+                            <span>Guincho</span>
+                        </div>
+                        <input class="inputBox" type="number" name="guincho" id="guincho" value="0">
+                        <button class="button-64" role="button" onclick="addGuincho()">+1</button>
+                        <button class="button-64"onclick="removGuincho()">-1</button>
+                        <button class="button-64" role="button" onclick="zerarGuincho()">Zerar</button>
+                    </div>
+    
+                    <div class="teste"> 
+                        <div class="relatorio">
+                            <p id="total">Valor a cobrar do cliente: R$<label></label></p>
+                        </div>
+                        <button class="button-64" role="button" onclick="zerarTudo()">Zerar Tudo</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
+
+<script type="text/javascript">
+    //KIT DE REPARO
+    function addKit() { document.getElementById("kit").value = parseInt(document.getElementById("kit").value) + 1; calculoTotal();}
+    function removKit() { if(document.getElementById("kit").value > 0){document.getElementById("kit").value = parseInt(document.getElementById("kit").value) - 1; calculoTotal();}}
+    function zerarKit() { document.getElementById("kit").value = 0; calculoTotal();}
+
+    //PNEU
+    function addPneu() { document.getElementById("pneu").value = parseInt(document.getElementById("pneu").value) + 1; calculoTotal();}
+    function removPneu() { if(document.getElementById("pneu").value > 0){document.getElementById("pneu").value = parseInt(document.getElementById("pneu").value) - 1; calculoTotal();}}
+    function zerarPneu() { document.getElementById("pneu").value = 0; calculoTotal();}
+
+    //PÉ DE CABRA
+    function addPe() { document.getElementById("pe").value = parseInt(document.getElementById("pe").value) + 1; calculoTotal();}
+    function removPe() { if(document.getElementById("pe").value > 0){document.getElementById("pe").value = parseInt(document.getElementById("pe").value) - 1; calculoTotal();}}
+    function zerarPe() { document.getElementById("pe").value = 0; calculoTotal();}
+
+    //CHAVE INGLESA
+    function addChave() { document.getElementById("chave").value = parseInt(document.getElementById("chave").value) + 1; calculoTotal();}
+    function removChave() { if(document.getElementById("chave").value > 0){document.getElementById("chave").value = parseInt(document.getElementById("chave").value) - 1; calculoTotal();}}
+    function zerarChave() { document.getElementById("chave").value = 0; calculoTotal();}
+
+    //GUINCHO
+    function addGuincho() { document.getElementById("guincho").value = parseInt(document.getElementById("guincho").value) + 1; calculoTotal();}
+    function removGuincho() { if(document.getElementById("guincho").value > 0){document.getElementById("guincho").value = parseInt(document.getElementById("guincho").value) - 1; calculoTotal();}}
+    function zerarGuincho() { document.getElementById("guincho").value = 0; calculoTotal();}
+
+    //GUINCHO
+    function addFiltroar() { document.getElementById("filtroar").value = parseInt(document.getElementById("filtroar").value) + 1; calculoTotal();}
+    function removFiltroar() { if(document.getElementById("filtroar").value > 0){document.getElementById("filtroar").value = parseInt(document.getElementById("filtroar").value) - 1; calculoTotal();}}
+    function zerarFiltroar() { document.getElementById("filtroar").value = 0; calculoTotal();}
+
+    //ZERAR TUDO
+
+    function zerarTudo() { zerarKit(); zerarPneu(); zerarPe(); zerarChave(); zerarGuincho(); zerarFiltroar(); }
+
+    //CALCULO TOTAL
+
+    function calculoTotal(){
+        total = document.getElementById("kit").value * 1000.0;
+		total += document.getElementById("pneu").value * 600.0;
+		total += document.getElementById("pe").value * 1000.0;
+		total += document.getElementById("chave").value * 1000.0;
+		total += document.getElementById("guincho").value * 500.0;
+        total += document.getElementById("filtroar").value * 550.0;
+        document.getElementById("total").textContent = "Valor a cobrar do cliente: $ " + total;
+    }
+</script>
